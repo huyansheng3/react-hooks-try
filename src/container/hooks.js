@@ -1,9 +1,8 @@
 import React, { useState, useEffect, useContext } from 'react'
-import { ThemeContext, LocaleContext } from './context'
+import { ThemeContext, LocaleContext } from '../context'
 import style from './hooks.css'
 
 export default function Hooks() {
-    console.log('hooks render')
     const [name, setName] = useState('胡衍生')
 
     const [title, setTitle] = useState('信控')
@@ -15,13 +14,11 @@ export default function Hooks() {
     })
 
     useEffect(() => {
-        console.log('useWindowWidth useEffect')
         function handleSetWidth() {
             setWidth(window.innerWidth)
         }
         window.addEventListener('resize', handleSetWidth)
         return () => {
-            console.log('useWindowWidth useEffect dispose')
             window.removeEventListener('resize', handleSetWidth)
         }
     })

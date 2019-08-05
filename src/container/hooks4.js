@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 
+// hooks中隐藏的一些陷阱
 export default function Hooks() {
     const [count, setCount] = useState(0);
 
@@ -27,7 +28,7 @@ export default function Hooks() {
 
     return (
         <div>
-            <h3>hooks4</h3>
+            <h3>hooks4 hooks中隐藏的一些陷阱</h3>
 
             <div>
                 <p>You clicked {count} times</p>

@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { ThemeContext } from './context'
+import { ThemeContext } from '../context'
 
 function ThemeSelect() {
     const { theme, changeTheme } = useContext(ThemeContext)

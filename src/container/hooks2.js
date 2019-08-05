@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react'
-import LocaleSelect from './locale-select'
-import ThemeSelect from './theme-select'
-import { ThemeContext, LocaleContext } from './context'
+import LocaleSelect from '../components/locale-select'
+import ThemeSelect from '../components/theme-select'
+import { ThemeContext, LocaleContext } from '../context'
 import style from './hooks.css'
 
 function useFormInput(initialValue: String) {
@@ -48,6 +48,7 @@ function useDocumentTitle(title: String) {
 
 
 export default function Hooks() {
+    // ts 对函数支持的非常好，ts的函数几乎等价于js的函数，对于类型推导非常棒
     const name = useFormInput('胡衍生')
 
     const title = useFormInput('信控')

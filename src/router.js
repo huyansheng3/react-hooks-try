@@ -1,25 +1,21 @@
 import React, { useState } from 'react';
-import Hooks from './hooks'
-import Hooks2 from './hooks2'
-import Hooks3 from './hooks3'
-import Hooks4 from './hooks4'
 
+let demos = {};
 
-const demos = {
-  '/hooks': Hooks,
-  '/hooks2': Hooks2,
-  '/hooks3': Hooks3,
-  '/hooks4': Hooks4
+function importAll(r) {
+  r.keys().forEach(key => demos[key] = r(key));
 }
+
+importAll(require.context('./container', false, /\.js(x)*$/));
 
 const demoList = Object.keys(demos)
 
 const len = demoList.length
 
 function Router() {
-  const [pathname, setPathname] = useState(window.location.pathname)
+  const [pathname, setPathname] = useState('.' + window.location.pathname)
 
-  const Demo = demos[pathname] || Hooks
+  const Demo = (demos[pathname] || {}).default || (demos[demoList[0]] || {}).default
 
   function next() {
     const index = demoList.findIndex(item => item === pathname)
