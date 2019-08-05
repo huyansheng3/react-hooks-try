@@ -7,10 +7,8 @@ export default function Hooks() {
 
     const [width, setWidth] = useState(window.innerWidth)
 
-    const [count, setCount] = useState(0);
-
     useEffect(() => {
-        document.title = `You clicked ${count} times`;
+        document.title = name;
     })
 
     useEffect(() => {
@@ -36,10 +34,6 @@ export default function Hooks() {
                 <label htmlFor="">标题</label>
                 <input type="text" value={title} onChange={e => setTitle(e.target.value)} />
             </div>
-
-            <button onClick={() => setCount(count + 1)}>
-                Click me
-            </button>
 
             <div>
                 <span>{width}</span>
