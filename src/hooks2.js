@@ -1,5 +1,8 @@
-import React, { useState, useEffect } from 'react'
-
+import React, { useState, useEffect, useContext } from 'react'
+import LocaleSelect from './locale-select'
+import ThemeSelect from './theme-select'
+import { ThemeContext, LocaleContext } from './context'
+import style from './hooks.css'
 
 function useFormInput(initialValue: String) {
     console.log('useFormInput', initialValue)
@@ -43,6 +46,7 @@ function useDocumentTitle(title: String) {
     })
 }
 
+
 export default function Hooks() {
     const name = useFormInput('胡衍生')
 
@@ -52,8 +56,11 @@ export default function Hooks() {
 
     useDocumentTitle(title.value)
 
+    const { theme } = useContext(ThemeContext)
+    const { locale } = useContext(LocaleContext)
+
     return (
-        <div>
+        <div className={theme}>
             <h3>hooks2</h3>
 
             <div>
@@ -68,6 +75,18 @@ export default function Hooks() {
 
             <div>
                 <span>{width}</span>
+            </div>
+
+
+            <div>
+                <div>{locale}</div>
+                <LocaleSelect></LocaleSelect>
+            </div>
+
+
+            <div>
+                <div>{theme}</div>
+                <ThemeSelect></ThemeSelect>
             </div>
 
         </div>

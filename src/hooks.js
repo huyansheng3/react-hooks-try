@@ -1,6 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
+import { ThemeContext, LocaleContext } from './context'
+import style from './hooks.css'
 
 export default function Hooks() {
+    console.log('hooks render')
     const [name, setName] = useState('胡衍生')
 
     const [title, setTitle] = useState('信控')
@@ -12,17 +15,23 @@ export default function Hooks() {
     })
 
     useEffect(() => {
+        console.log('useWindowWidth useEffect')
         function handleSetWidth() {
             setWidth(window.innerWidth)
         }
         window.addEventListener('resize', handleSetWidth)
         return () => {
+            console.log('useWindowWidth useEffect dispose')
             window.removeEventListener('resize', handleSetWidth)
         }
     })
 
+    const { theme, changeTheme } = useContext(ThemeContext)
+
+    const { locale, changeLocale } = useContext(LocaleContext)
+
     return (
-        <div>
+        <div className={theme}>
             <h3>hooks</h3>
 
             <div>
@@ -37,6 +46,30 @@ export default function Hooks() {
 
             <div>
                 <span>{width}</span>
+            </div>
+
+            <div>
+                <span>{locale}</span>
+            </div>
+
+            <div>
+                <select value={locale} onChange={e => changeLocale(e.target.value)}>
+                    <option value="zh-CN">zh-CN</option>
+                    <option value="en">en</option>
+                    <option value="jp">jp</option>
+                </select>
+            </div>
+
+            <div>
+                <span>{theme}</span>
+            </div>
+
+            <div>
+                <select value={theme} onChange={e => changeTheme(e.target.value)}>
+                    <option value="red">red</option>
+                    <option value="green">green</option>
+                    <option value="orange">orange</option>
+                </select>
             </div>
 
         </div>
