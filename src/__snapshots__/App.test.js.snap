@@ -63,3 +63,39 @@ exports[`App renders snapshot 1`] = `
   </header>
 </div>
 `;
+
+exports[`Tops renders snapshot 1`] = `
+<div
+  style={
+    Object {
+      "height": "100vh",
+      "padding": "30px",
+    }
+  }
+>
+  <form
+    onSubmit={[Function]}
+  >
+    <div>
+      <input
+        onChange={[Function]}
+        type="text"
+        value="redux"
+      />
+      <button
+        type="submit"
+      >
+        Search
+      </button>
+    </div>
+  </form>
+  <ul
+    style={
+      Object {
+        "maxHeight": "300px",
+        "overflowY": "scroll",
+      }
+    }
+  />
+</div>
+`;
