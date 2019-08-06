@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import Router from './router'
 import { ThemeContext, LocaleContext } from './context'
+import 'bulma/css/bulma.css';
 
 function App() {
   console.log('app render')
@@ -10,7 +11,6 @@ function App() {
   const [locale, changeLocale] = useState('zh-CN')
 
   return (
-
     <div className="App">
       <header className="App-header">
         <ThemeContext.Provider value={{ theme, changeTheme }}>

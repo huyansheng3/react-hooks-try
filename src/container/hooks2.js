@@ -47,6 +47,27 @@ function useDocumentTitle(title: String) {
 }
 
 
+function useForm(callback) {
+    const [values, setValues] = useState({})
+
+    function onChange(event) {
+        event.persist();
+        setValues(values => ({ ...values, [event.target.name]: event.target.value }));
+    }
+
+    function onSubmit(event) {
+        if (event) event.preventDefault();
+        callback();
+    }
+
+    return {
+        onChange,
+        onSubmit,
+        values,
+    }
+}
+
+
 export default function Hooks() {
     // ts 对函数支持的非常好，ts的函数几乎等价于js的函数，对于类型推导非常棒
     const name = useFormInput('胡衍生')
