@@ -3,10 +3,15 @@ import ReactDOM from 'react-dom';
 import Tops from './tops';
 import { render, fireEvent, cleanup } from '@testing-library/react';
 import renderer from 'react-test-renderer';
-import MockAdapter from "axios-mock-adapter";
 
-test('test loading status', () => {
+test('test loading status', async () => {
+
   const { getByText, getByTestId } = render(<Tops />)
+  expect(getByTestId('loading')).toHaveTextContent(/loading/i)
+
+  const list = await getByTestId('list')
+
+
 
 })
 

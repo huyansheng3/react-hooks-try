@@ -44,7 +44,7 @@ function importAll(r) {
   r.keys().forEach(key => demos[key] = r(key));
 }
 
-importAll(require.context('./container', false, /\.js(x)*$/));
+importAll(require.context('./container', false, /^(?!.*test\.js).*\.js$/));
 
 const demoList = Object.keys(demos)
 

@@ -34,9 +34,9 @@ export default function Tops() {
             {isError && <div>Something went wrong ...</div>}
 
             {isLoading ? (
-                <div>Loading ...</div>
+                <div data-testid="loading">Loading ...</div>
             ) : (
-                    <ul style={{ maxHeight: '300px', overflowY: 'scroll' }}>
+                    <ul data-testid="list" style={{ maxHeight: '300px', overflowY: 'scroll' }}>
                         {data.hits.map(item => (
                             <li key={item.objectID}>
                                 <a href={item.url}>{item.title}</a>
