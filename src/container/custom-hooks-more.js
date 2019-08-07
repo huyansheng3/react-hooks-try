@@ -2,7 +2,7 @@ import React from 'react'
 
 // import { useState } from 'react'
 
-import { useHooks, useState } from "../utils/useHooks";
+import { useHooks, useState, useEffect } from "../utils/useHooks";
 
 function CustomHooks1(props) {
     const [name, setName] = useState('胡衍生')
@@ -20,6 +20,11 @@ function CustomHooks1(props) {
 function CustomHooks2(props) {
     const [title, setTitle] = useState('信控')
     console.log('CustomHooks2')
+
+    useEffect(() => {
+        document.title = title;
+    })
+
     return (
         <div>
             <div>
