@@ -11,13 +11,7 @@ export default class ModalClazz extends React.Component {
         });
     };
 
-    handleOk = e => {
-        this.setState({
-            visible: false
-        });
-    };
-
-    handleCancel = e => {
+    handleClose = e => {
         this.setState({
             visible: false
         });
@@ -33,8 +27,8 @@ export default class ModalClazz extends React.Component {
                 <Modal
                     title="ModalClazz"
                     visible={this.state.visible}
-                    onOk={this.handleOk}
-                    onCancel={this.handleCancel}
+                    onOk={this.handleClose}
+                    onCancel={this.handleClose}
                 >
                     <p>Some contents...</p>
                     <p>Some contents...</p>
