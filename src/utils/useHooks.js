@@ -7,24 +7,11 @@ function setCurrentInstance(ins) {
     instance.__index__ = 0
 }
 
-function resetCurrentInstanceIndex(ins) {
-    instance.__index__ = 0
-}
-
-
 export function useHooks(SFC) {
     return class extends Component {
         render() {
             setCurrentInstance(this)
             return <SFC {...this.props} />
-        }
-
-        componentDidUpdate(prevProps, prevState) {
-            resetCurrentInstanceIndex(this)
-        }
-
-        componentDidMount() {
-            resetCurrentInstanceIndex(this)
         }
     }
 }

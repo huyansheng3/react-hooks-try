@@ -1,8 +1,8 @@
 import React from 'react'
 
-import { useState } from 'react'
+// import { useState } from 'react'
 
-// import { useHooks, useState } from "../utils/useHooks";
+import { useHooks, useState } from "../utils/useHooks";
 
 
 function CustomHooks(props) {
@@ -27,6 +27,6 @@ function CustomHooks(props) {
     );
 }
 
-export default CustomHooks
+// export default CustomHooks
 
-// export default useHooks(CustomHooks);
+export default useHooks(CustomHooks);
