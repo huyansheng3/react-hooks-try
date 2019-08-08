@@ -26,6 +26,7 @@ exports[`Tops renders snapshot 1`] = `
     </div>
   </form>
   <ul
+    data-testid="list"
     style={
       Object {
         "maxHeight": "300px",
