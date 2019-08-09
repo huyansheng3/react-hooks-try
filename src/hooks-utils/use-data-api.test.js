@@ -45,10 +45,6 @@ describe("useDataApi test", () => {
 
         const firstPromiseGet = axios.lastPromiseGet()
 
-        firstPromiseGet.catch((e) => {
-            console.log('catch', e)
-        })
-
         doFetch('http://hn.algolia.com/api/v1/search?query=vue')
 
         expect(axios).toHaveBeenCalledTimes(2)

@@ -12,6 +12,7 @@ export default class TopsClazz extends Component {
     }
 
     doFetch = (url) => {
+
         axios(url).then(res => {
             this.setState({ data: res.data })
         })
